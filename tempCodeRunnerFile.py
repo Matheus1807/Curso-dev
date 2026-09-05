@@ -4,9 +4,10 @@ notas = []
 for i in range(1, 14):
     nota = float(input(f"Digite a {i}ª nota: "))
 
-    while nota < 0 or nota > 10:
+    while nota >= 0 and nota <= 10:
         print("Nota inválida")
         nota = float(input("Digite novamente: "))
+
     notas.append(nota)
 
 

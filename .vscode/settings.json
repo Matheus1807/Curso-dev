@@ -1,0 +1,14 @@
+{
+  "python-envs.pythonProjects": [
+    {
+      "path": "Curso-dev/curso.py",
+      "envManager": "ms-python.python:venv",
+      "packageManager": "ms-python.python:pip"
+    }
+  ],
+
+  "editor.formatOnSave": true,
+  "editor.insertSpaces": true,
+  "editor.tabSize": 4,
+  "files.autoSave": "off"
+}

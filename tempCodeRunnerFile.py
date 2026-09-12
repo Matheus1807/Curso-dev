@@ -1,47 +1,40 @@
-# Ele vai dar a média do bimestre, trimestre e anual com base nas notas dadas
-notas = []
+# Variaveis
+numero1 = float(input("O primeiro lado "))
+numero2 = float(input("O segundo lado "))
+numero3 = float(input("O terceiro lado "))
+# Soma dos lados
+sn = numero1 + numero2
+# Verifica se o sn > é maior que o terceiro lado
+if sn > numero3:
+    print("a soma dois lados é maior que o terceiro lado")
 
-for i in range(1, 14):
-    nota = float(input(f"Digite a {i}ª nota: "))
+    # Verisifica se é Equilatero
+    if (numero1 == numero2)\
+        and (numero2 == numero3):
+        print("Triangulo Equilátero")
 
-    while nota >= 0 and nota <= 10:
-        print("Nota inválida")
-        nota = float(input("Digite novamente: "))
+    # Verisifica se é Isoceles
 
-    notas.append(nota)
+    elif (numero2 == numero1 != numero3)\
+          or (numero1 == numero3 != numero2)\
+          or (numero3 == numero2 != numero1 ):
+        print("Triângulo isóceles")
 
+    # Se não for nenhum dos dois, tem que ser Escaleno
 
-mb = notas[0] + notas[1]
-mb = mb/2
-print(f"A média do bimestre é: {mb}")
-mt1 = (mb + notas[3])/3
-if mt1 > 5:
-    print("Aprovado")
+    else:
+        print("Escaleno")
 else:
-    print("Está de recuperação")
-print(f"A média do trimestre é: {mt1}")
-mt2 = (notas[4] + notas[5] + notas[6])/3
+    print("""
+[ERRO CRÍTICO DO SISTEMA]
 
-if mt2 > 5:
-    print("Aprovado")
-else:
-    print("Está de recuperação")
-print(f"A média do trimestre é: {mt2}")
-mt3 = (notas[7] + notas[8] + notas[9])/3
-if mt3 > 5:
-    print("Aprovado")
-else:
-    print("Está de recuperação")
-print(f"A média do trimestre é: {mt3}")
-mt4= (notas[10] + notas[11] + notas[12]) /3
-if mt4 > 5:
-    print("Aprovado")
-else:
-    print("Está de recuperação")
-print(f"A média do trimestre é: {mt4}")
-mAnual = (mt1 + mt2 + mt3 + mt4)/4
-print(f"A média anual é: {mAnual}")
-if mAnual > 5:
-    print("Aprovado")
-else:
-    print("Reprovado")
+Acesso não autorizado detectado.
+Conexão externa estabelecida.
+Tentativa de acesso aos arquivos do sistema em andamento...
+
+IP: 192.168.0.*** 
+Status: COMPROMETIDO
+Código do erro: 0xA93F21
+
+[AVISO: atividade suspeita detectada.
+""")

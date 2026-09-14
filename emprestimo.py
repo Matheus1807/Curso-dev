@@ -16,14 +16,15 @@ while score < 0 or score > 1000:
 
 # strip() tira espaços / upper() transforma n em N
 restricao = input("Possui restrição?[S/N] ").strip().upper()
-while restricao != "N" or restricao != "S":
+while restricao != "N" and restricao != "S":
     print("Erro na digitação da restrição!")
     print("Digite novamente!")
     restricao = input("Possui restrição?[S/N] ").strip().upper()
 
 valor = int(input("Valor solicitado"))
 
-if renda >= 4000 and score >= 700 and restricao == "N" and valor <= 10000:
+if renda >= 4000 and score >= 700 and \
+    restricao == "N" and valor <= 10000:
     print("===== ANÁLISE DE CRÉDITO =====")
     print(f"Renda: {renda}")
     print(f"Score: {score}") 
@@ -33,7 +34,10 @@ if renda >= 4000 and score >= 700 and restricao == "N" and valor <= 10000:
     print("Motivo: renda e score dentro dos requisitos.")
 
 
-elif renda >= 2500 and restricao == "N" and score >= 500 or renda > 6000:
+elif restricao == "N" and (
+    renda >= 2500 and score >= 500
+    or renda > 6000
+):
     print("===== ANÁLISE DE CRÉDITO =====")
     print(f"Renda: {renda}")
     print(f"Score: {score}") 

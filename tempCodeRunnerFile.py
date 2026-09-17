@@ -1,0 +1,2 @@
+elif jogador != computador:
+    

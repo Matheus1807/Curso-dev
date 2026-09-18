@@ -1,6 +1,7 @@
 # 3 rodadas contra a máquina para adivinhar 
 #  um número secreto entre 1 e 50.
 import random
+
 print(
     "O jogo é o seguinte:\n"
     "3 rodadas contra a máquina para adivinhar o número\n"

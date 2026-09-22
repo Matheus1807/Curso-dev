@@ -1,6 +1,15 @@
 # 1. Desenvolva um programa para registrar as vendas de uma loja ao longo
 # do dia. O programa deve processar múltiplos clientes até que o
 # operador digite 0 no total de compras para encerrar o expediente.
+user = input("Digite seu usuario: ").lower
+senha = int(input("Digite sua senha: "))
+
+while user != "matheus" or senha != 123:
+    print("Senha incorreta: ")
+    user = input("Digite  sua login: ")
+    senha = int(input("Digite  sua senha: "))
+print("Login realizado com sucesso!")
+
 cliente =  0
 total_vendas = 0
 
@@ -8,10 +17,10 @@ while True:
 
     venda = float(input(
     "Digite o valor da venda em R$ ou digite 0 para encerrar o expediente: "
-    ))
+     ))
     cupons = float(input(
     "Digite o valor do desconto: "
-    ))
+        ))
 
     if venda == 0:
         print("Expediente encerrado!")
@@ -20,15 +29,15 @@ while True:
     while venda < 0:
         print("Erro na digitação!")
         venda = float(input(
-     "Digite o valor da venda em R$ ou digite 0 para encerrar o expediente: "
-    ))
+    "Digite o valor da venda em R$ ou digite 0 para encerrar o expediente: "
+        ))
     while cupons < 0:
         print("Erro na digitação!")
         cupons = float(input(
         "Digite o valor do desconto: "
         ))
 
-    
+        
     cupons = venda * (cupons / 100)
     venda_final = venda - cupons
     total_vendas += venda_final

@@ -1,4 +1,3 @@
-
 # Variaveis
 cargo =[
    input("Diga seu cargo: ").strip().lower()

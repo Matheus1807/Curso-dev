@@ -1,166 +1,126 @@
-# 📊 Calculadora de Médias Escolares
+# Curso de Python — exercícios e evolução
 
-Projeto simples desenvolvido em **Python** para calcular médias escolares a partir das notas informadas pelo usuário.
+Este repositório reúne os exercícios que desenvolvi durante meus estudos de **Python**. Os programas registram minha evolução desde os fundamentos da linguagem até pequenos projetos com validação de dados, jogos e uma introdução à criação de APIs.
 
-O programa solicita as notas, verifica se elas estão entre **0 e 10** e calcula as médias do bimestre, dos trimestres e a média anual.
+> Projeto em desenvolvimento: novos exercícios serão adicionados conforme avanço no curso.
 
-## 🚀 Funcionalidades
+## Conteúdos estudados
 
-- Recebe as notas pelo terminal
-- Armazena as notas em uma lista
-- Valida notas entre `0` e `10`
-- Não permite continuar enquanto uma nota inválida for informada
-- Calcula a média bimestral
-- Calcula as médias trimestrais
-- Calcula a média anual
-- Informa se o aluno está:
-  - Aprovado
-  - Em recuperação
-  - Reprovado ao final do ano
+- Variáveis e tipos de dados
+- Entrada e saída com `input()` e `print()`
+- Conversão de valores com `int()` e `float()`
+- Operadores matemáticos, relacionais e lógicos
+- Estruturas condicionais com `if`, `elif` e `else`
+- Estruturas de repetição com `for` e `while`
+- Listas, índices, fatiamento, `append()`, `pop()` e `len()`
+- `range()` e operador `in`
+- Validação de dados informados pelo usuário
+- Formatação de textos com f-strings
+- Uso do módulo `random`
+- Introdução ao FastAPI e criação de rotas
 
-## 🧠 Conceitos utilizados
+## Organização do repositório
 
-Durante o desenvolvimento foram utilizados conceitos básicos de Python, como:
-
-- Variáveis
-- `input()`
-- `float()`
-- Listas
-- `for`
-- `range()`
-- `while`
-- `append()`
-- Condições com `if` e `else`
-- Operadores matemáticos
-- Operadores lógicos `or`
-- F-strings
-
-## 💻 Código
-
-```python
-# Ele vai dar a média do bimestre, trimestre e anual com base nas notas dadas
-
-notas = []
-
-for i in range(1, 14):
-    nota = float(input(f"Digite a {i}ª nota: "))
-
-    while nota < 0 or nota > 10:
-        print("Nota inválida")
-        nota = float(input("Digite novamente: "))
-
-    notas.append(nota)
-
-
-mb = notas[0] + notas[1]
-mb = mb / 2
-
-print(f"A média do bimestre é: {mb}")
-
-
-mt1 = (mb + notas[3]) / 3
-
-if mt1 > 5:
-    print("Aprovado")
-else:
-    print("Está de recuperação")
-
-print(f"A média do trimestre é: {mt1}")
-
-
-mt2 = (notas[4] + notas[5] + notas[6]) / 3
-
-if mt2 > 5:
-    print("Aprovado")
-else:
-    print("Está de recuperação")
-
-print(f"A média do trimestre é: {mt2}")
-
-
-mt3 = (notas[7] + notas[8] + notas[9]) / 3
-
-if mt3 > 5:
-    print("Aprovado")
-else:
-    print("Está de recuperação")
-
-print(f"A média do trimestre é: {mt3}")
-
-
-mt4 = (notas[10] + notas[11] + notas[12]) / 3
-
-if mt4 > 5:
-    print("Aprovado")
-else:
-    print("Está de recuperação")
-
-print(f"A média do trimestre é: {mt4}")
-
-
-mAnual = (mt1 + mt2 + mt3 + mt4) / 4
-
-print(f"A média anual é: {mAnual}")
-
-if mAnual > 5:
-    print("Aprovado")
-else:
-    print("Reprovado")
+```text
+Curso-dev/
+├── condicionais/
+│   ├── curso.py           # médias escolares e validação de notas
+│   ├── ex4.py             # classificação de triângulos
+│   └── jogo.py            # pedra, papel e tesoura
+├── função/
+│   ├── ex10-a.py          # leitura e armazenamento de números
+│   ├── lista.py           # índices, remoção e percurso de listas
+│   └── maquinário.py      # controle de acesso com listas e condições
+├── loops/
+│   ├── Fibonacci.py       # sequência de Fibonacci
+│   ├── for.py             # tabuada com for e range
+│   ├── loja.py            # registro de vendas e descontos
+│   ├── notasLoops.py      # validação de notas com while
+│   └── numAleatorio.py    # jogo de adivinhação com números aleatórios
+└── passaTempo/
+    ├── api.py             # primeira API com FastAPI
+    └── emprestimo.py      # simulação de análise de crédito
 ```
 
-## ▶️ Como executar
+## Exercícios em destaque
 
-Tenha o Python instalado no computador.
+### Calculadora de médias escolares
 
-Clone o repositório:
+Recebe notas, valida valores entre `0` e `10` e calcula médias escolares, indicando a situação do aluno.
+
+### Jogo de pedra, papel e tesoura
+
+Utiliza o módulo `random` para criar a escolha do computador e estruturas condicionais para determinar o resultado.
+
+### Jogo de adivinhação
+
+Gera números aleatórios e permite várias tentativas, praticando contadores, laços e condições.
+
+### Registro de vendas
+
+Processa vários clientes, aplica descontos e acumula o total vendido até o encerramento do expediente.
+
+### Prática com listas
+
+Explora acesso por índice, remoção com `pop()`, tamanho com `len()` e percursos com `for`.
+
+### Análise de crédito
+
+Simula uma decisão de crédito com base em renda, score, restrições e valor solicitado.
+
+### Primeira API
+
+Cria uma rota simples com FastAPI que retorna uma resposta em JSON.
+
+## Como executar
+
+### Requisitos
+
+- Python 3 instalado
+- FastAPI e Uvicorn apenas para executar o exercício de API
+
+Clone o repositório e entre na pasta:
 
 ```bash
-git clone URL_DO_REPOSITORIO
-```
-
-Entre na pasta do projeto:
-
-```bash
+git clone https://github.com/Matheus1807/Curso-dev.git
 cd Curso-dev
 ```
 
-Execute o arquivo:
+Execute qualquer exercício informando seu caminho. Exemplos:
 
 ```bash
-python curso.py
+python condicionais/jogo.py
+python loops/loja.py
+python passaTempo/emprestimo.py
 ```
 
-## 📝 Exemplo
+Para executar a API, instale as dependências necessárias:
 
-```text
-Digite a 1ª nota: 8
-Digite a 2ª nota: 7
-Digite a 3ª nota: 9
-...
+```bash
+python -m pip install fastapi uvicorn
+python -m uvicorn passaTempo.api:app --reload
 ```
 
-Caso seja digitada uma nota inválida:
+Depois, acesse `http://127.0.0.1:8000` no navegador.
 
-```text
-Digite a 1ª nota: 15
-Nota inválida
-Digite novamente: 8
-```
+## Objetivo
 
-O programa somente aceita notas entre `0` e `10`.
+Meu objetivo com este repositório é praticar lógica de programação, consolidar os fundamentos de Python e acompanhar minha evolução por meio de exercícios progressivos e pequenos projetos.
 
-## 🎯 Objetivo do projeto
+## Próximos passos
 
-Este projeto foi criado com o objetivo de praticar os fundamentos de Python, principalmente estruturas de repetição, listas, condições e validação de dados.
+- Criar funções para reutilizar trechos de código
+- Melhorar o tratamento de entradas inválidas
+- Estudar dicionários, tuplas e conjuntos
+- Organizar dependências do projeto
+- Criar novos endpoints na API
+- Adicionar testes automatizados
 
-## 🛠️ Tecnologia
+## Tecnologia
 
 - Python 3
-
-## 📚 Aprendizados
-
-Com este projeto foi possível praticar como armazenar vários valores dentro de uma lista e utilizar estruturas como `for` e `while` para evitar repetição desnecessária de código.
+- FastAPI
 
 ---
 
-Projeto desenvolvido para fins de estudo e prática de **Python**.
+Desenvolvido para fins de estudo e prática de programação em Python.

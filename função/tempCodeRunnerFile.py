@@ -1,1 +1,1 @@
-carro_quesaiu
+media = sum(notas)/len(notas)

@@ -11,5 +11,7 @@ for i in range(0, 10):
 maior = max(lista)
 menor = min(lista)
 
-for numero in lista:
-    indice = lista.index(numero)
+indice = lista.index(maior)
+indiceMen = lista.index(menor)
+
+print(f'Maior {maior}, menor {menor}, posição maior {indice}, posição menor {indiceMen}')

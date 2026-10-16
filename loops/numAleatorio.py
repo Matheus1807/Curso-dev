@@ -7,85 +7,34 @@ print(
     "3 rodadas contra a máquina para adivinhar o número\n"
     "que ela escolheu de 1 a 50."
 )
+pontos = 0
 
-jogador = int(input("Escolha numero: "))
-computador = random.randint(1,50)
-tentativas = 0   
+for i in range(3):
+    computador = random.randint(1,50)
+    print(f'rodas é igual {i+1}')
+    tentativas = 0  
 
-if jogador == computador:
+    while(tentativas < 5):
+        jogador = int(input("Escolha numero: "))   
+        tentativas+=1 
 
-    print(
-        "Você ganhou!\n"
-        "Conseguiu 100 pontos!"
-        )
+        print(f' Você está {tentativas} ')
 
-while(tentativas < 5):
-    tentativas+=1 
+        if  jogador == computador:
 
-    print(f' Você está {tentativas} ')
+            print(
+            "Você ganhou!\n"
+            f"O número era {computador}\n"
+            "Conseguiu 100 pontos!"
+            )
+            break
 
-    if  jogador == computador:
+        elif jogador > computador:
+            print('número menor')
 
-        print(
-        "Você ganhou!\n"
-        f"O número era {computador}\n"
-        "Conseguiu 100 pontos!"
-        )
-
-        break
-
-    elif jogador != computador:
-        print("Você errou, jogue de novo!")
-        jogador = int(input("Escolha numero:"))
-
-computador = random.randint(1,50)
-tentativas = 0  
-
-print("A segunda - valendo 75 pnts ")
-
-while(tentativas < 5):
-    tentativas+=1 
-
-    print(f' Você está {tentativas} ')
-
-    if  jogador == computador:
-
-        print(
-        "Você ganhou!\n"
-        f"O número era {computador}\n"
-        "Conseguiu 100 pontos!"
-        )
-
-        break
-
-    elif jogador != computador:
-        print("Você errou, jogue de novo!")
-        jogador = int(input("Escolha numero:"))
+        elif jogador < computador:
+            print('número maior')
 
 
-
-computador = random.randint(1,50)        
-tentativas = 0  
-print("A terceira rodada")
-while(tentativas < 5):
-    tentativas+=1 
-
-    print(f' Você está {tentativas} ')
-
-    if  jogador == computador:
-
-        print(
-        "Você ganhou!\n"
-        f"O número era {computador}\n"
-        "Conseguiu 100 pontos!"
-        )
-
-        break
-
-    elif jogador != computador:
-        print("Você errou, jogue de novo!")
-        jogador = int(input("Escolha numero:"))
-
-
-else:
     print("Suas tentativas acabaram.")
+    computador = random.randint(1,50)

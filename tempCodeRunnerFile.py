@@ -1,1 +1,1 @@
-dollar = float(input("Digite a cotação do dollar: "))
+nt('E')

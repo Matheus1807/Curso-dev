@@ -27,7 +27,7 @@ while True:
         break
 
     while venda < 0:
-        print("Erro na digitação!")
+        print("Erro na digitação!") 
         venda = float(input(
     "Digite o valor da venda em R$ ou digite 0 para encerrar o expediente: "
         ))

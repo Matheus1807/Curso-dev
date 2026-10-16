@@ -1,100 +1,151 @@
-# Curso de Python — exercícios e evolução
+# Curso de Python — lógica de programação e prática
 
-Este repositório reúne os exercícios que desenvolvi durante meus estudos de **Python**. Os programas registram minha evolução desde os fundamentos da linguagem até pequenos projetos com validação de dados, jogos e uma introdução à criação de APIs.
+Este repositório reúne os exercícios que desenvolvi durante meus estudos de **Python** no curso Técnico em Desenvolvimento de Sistemas. Ele registra minha evolução desde os fundamentos da linguagem até a resolução de problemas com listas, matrizes, funções, validação de dados e uma introdução ao desenvolvimento de APIs.
 
-> Projeto em desenvolvimento: novos exercícios serão adicionados conforme avanço no curso.
+> Repositório de estudos em evolução: alguns arquivos representam exercícios concluídos e outros registram testes, revisões e etapas do meu aprendizado.
+
+## Objetivo
+
+Praticar lógica de programação, transformar regras de negócio em algoritmos e acompanhar minha evolução por meio de exercícios progressivos e pequenos projetos de console.
 
 ## Conteúdos estudados
+
+### Fundamentos da linguagem
 
 - Variáveis e tipos de dados
 - Entrada e saída com `input()` e `print()`
 - Conversão de valores com `int()` e `float()`
-- Operadores matemáticos, relacionais e lógicos
+- Operadores aritméticos, relacionais e lógicos
+- Formatação de textos com f-strings
+
+### Controle de fluxo
+
 - Estruturas condicionais com `if`, `elif` e `else`
 - Estruturas de repetição com `for` e `while`
-- Listas, índices, fatiamento, `append()`, `pop()` e `len()`
-- `range()` e operador `in`
-- Validação de dados informados pelo usuário
-- Formatação de textos com f-strings
-- Uso do módulo `random`
-- Introdução ao FastAPI e criação de rotas
+- Uso de `range()`, contadores e acumuladores
+- Validação de dados e repetição de entradas inválidas
+- Interrupção de laços com `break`
+
+### Estruturas de dados
+
+- Listas e listas paralelas
+- Índices, fatiamento e percursos
+- Métodos como `append()`, `insert()`, `remove()`, `pop()` e `sort()`
+- Tuplas e o conceito de imutabilidade
+- Conjuntos, diferenças e verificação de permissões
+- Dicionários para representar dados estruturados
+- Matrizes bidimensionais com laços aninhados
+
+### Algoritmos e organização do código
+
+- Criação e chamada de funções
+- Parâmetros e valores de retorno
+- Busca de valores e posições
+- Identificação manual de maiores e menores valores
+- Cálculo de soma, média e contagem
+- Filtragem e transformação de listas
+- Cópias de listas e matrizes com `copy` e `deepcopy`
+- Ordenação com `sort()` e funções `lambda`
+- Compreensões de listas
+
+### Bibliotecas e desenvolvimento web
+
+- Geração de números aleatórios com `random`
+- Introdução ao FastAPI
+- Criação de uma rota HTTP com resposta em JSON
+- Execução de uma API local com Uvicorn
 
 ## Organização do repositório
 
 ```text
 Curso-dev/
-├── condicionais/
-│   ├── curso.py           # médias escolares e validação de notas
-│   ├── ex4.py             # classificação de triângulos
-│   └── jogo.py            # pedra, papel e tesoura
-├── função/
-│   ├── ex10-a.py          # leitura e armazenamento de números
-│   ├── lista.py           # índices, remoção e percurso de listas
-│   └── maquinário.py      # controle de acesso com listas e condições
-├── loops/
-│   ├── Fibonacci.py       # sequência de Fibonacci
-│   ├── for.py             # tabuada com for e range
-│   ├── loja.py            # registro de vendas e descontos
-│   ├── notasLoops.py      # validação de notas com while
-│   └── numAleatorio.py    # jogo de adivinhação com números aleatórios
-└── passaTempo/
-    ├── api.py             # primeira API com FastAPI
-    └── emprestimo.py      # simulação de análise de crédito
+├── condicionais/   # decisões, notas, triângulos e jogos
+├── estrutura/      # listas, tuplas, conjuntos e dicionários
+├── função/         # exercícios com vetores, buscas, médias e funções
+├── loops/          # repetições, acumuladores, Fibonacci e validações
+├── matriz/         # matrizes 2x2 e 3x3, transposição e buscas
+├── passaTempo/     # pequenos projetos e introdução ao FastAPI
+├── provas/         # soluções da avaliação prática de lógica
+├── revisao/        # exercícios integrando os conteúdos estudados
+├── loja.py         # experimento de autenticação e dados de usuários
+└── README.md
 ```
 
-## Exercícios em destaque
+## Exercícios e projetos em destaque
 
-### Calculadora de médias escolares
+### Condicionais e validações
 
-Recebe notas, valida valores entre `0` e `10` e calcula médias escolares, indicando a situação do aluno.
+- Cálculo e classificação de médias escolares
+- Classificação de triângulos
+- Jogo de pedra, papel e tesoura
+- Simulação de análise de crédito
+- Controle de acesso por cargo, horário e chave de emergência
 
-### Jogo de pedra, papel e tesoura
+### Laços e vetores
 
-Utiliza o módulo `random` para criar a escolha do computador e estruturas condicionais para determinar o resultado.
+- Sequência de Fibonacci e tabuadas
+- Busca e contagem de números em listas
+- Inversão, ordenação e transformação de vetores
+- Substituição e filtragem de valores
+- Registro de vendas, descontos e total acumulado
+- Jogo de adivinhação com números aleatórios
 
-### Jogo de adivinhação
+### Matrizes
 
-Gera números aleatórios e permite várias tentativas, praticando contadores, laços e condições.
+- Leitura e exibição de matrizes 2x2 e 3x3
+- Soma e média dos elementos
+- Busca de valores e coordenadas
+- Multiplicação por um valor escalar
+- Transposição de matriz
+- Verificação de quadrado mágico
+- Substituição de elementos a partir de um limiar
 
-### Registro de vendas
+### Estruturas de dados aplicadas
 
-Processa vários clientes, aplica descontos e acumula o total vendido até o encerramento do expediente.
+- Fila de tarefas com listas
+- Configuração de banco de dados com tuplas
+- Controle de permissões com conjuntos
+- Cadastro de candidatos com listas e dicionários
+- Controle de estoque com listas paralelas
 
-### Prática com listas
+### Avaliação prática de lógica
 
-Explora acesso por índice, remoção com `pop()`, tamanho com `len()` e percursos com `for`.
+Os cinco programas da pasta `provas` aplicam os principais conceitos estudados:
 
-### Análise de crédito
-
-Simula uma decisão de crédito com base em renda, score, restrições e valor solicitado.
+1. Lista de números, média aritmética e contagem de pares.
+2. Separação de pares e ímpares com multiplicação por escalar.
+3. Transformação de uma matriz 3x3 com base em um limiar.
+4. Auditoria do consumo energético de máquinas.
+5. Monitoramento térmico de racks e sensores.
 
 ### Primeira API
 
-Cria uma rota simples com FastAPI que retorna uma resposta em JSON.
+O arquivo `passaTempo/api.py` utiliza FastAPI para disponibilizar uma rota simples que retorna uma resposta em JSON.
 
 ## Como executar
 
 ### Requisitos
 
 - Python 3 instalado
-- FastAPI e Uvicorn apenas para executar o exercício de API
+- FastAPI e Uvicorn apenas para o exercício de API
 
-Clone o repositório e entre na pasta:
+Clone o repositório e acesse a pasta do projeto:
 
 ```bash
 git clone https://github.com/Matheus1807/Curso-dev.git
 cd Curso-dev
 ```
 
-Execute qualquer exercício informando seu caminho. Exemplos:
+Execute um exercício informando o caminho do arquivo. Exemplos:
 
 ```bash
 python condicionais/jogo.py
-python loops/loja.py
-python passaTempo/emprestimo.py
+python loops/Fibonacci.py
+python matriz/3x3.py
+python provas/5.py
 ```
 
-Para executar a API, instale as dependências necessárias:
+Para executar a API:
 
 ```bash
 python -m pip install fastapi uvicorn
@@ -103,24 +154,23 @@ python -m uvicorn passaTempo.api:app --reload
 
 Depois, acesse `http://127.0.0.1:8000` no navegador.
 
-## Objetivo
-
-Meu objetivo com este repositório é praticar lógica de programação, consolidar os fundamentos de Python e acompanhar minha evolução por meio de exercícios progressivos e pequenos projetos.
-
 ## Próximos passos
 
-- Criar funções para reutilizar trechos de código
-- Melhorar o tratamento de entradas inválidas
-- Estudar dicionários, tuplas e conjuntos
-- Organizar dependências do projeto
-- Criar novos endpoints na API
-- Adicionar testes automatizados
+- Aprimorar a divisão dos programas em funções reutilizáveis
+- Adicionar tratamento de exceções para entradas inválidas
+- Padronizar o código seguindo as recomendações da PEP 8
+- Criar testes automatizados
+- Organizar as dependências do projeto
+- Expandir a API com novas rotas e operações CRUD
+- Estudar programação orientada a objetos e bancos de dados
 
-## Tecnologia
+## Tecnologias
 
 - Python 3
 - FastAPI
+- Uvicorn
+- Git e GitHub
 
 ---
 
-Desenvolvido para fins de estudo e prática de programação em Python.
+Desenvolvido para fins de estudo e prática de programação.

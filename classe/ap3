@@ -1,0 +1,99 @@
+class Caixa:
+
+    _acessadoRegistro = []
+
+    def __init__(self, nome_funcionario, vendas_atuais = 0, dinheiro_atual =0 ):
+        self._nome = nome_funcionario
+        self._vendas = vendas_atuais
+        self._dinheiro = dinheiro_atual
+
+        registro_dicionario = {
+                    'Funcionario': self._nome,
+                    'Vendas': self._vendas,
+                    'Dinheiro': self._dinheiro
+                }
+        # Assim que um usuário loga/cria o caixa, o nome dele já vai para a lista segura
+        Caixa._acessadoRegistro.append(registro_dicionario)
+
+    # get
+    @property
+    def nome(self):
+        return self._nome
+    
+    @property
+    def vendas(self):
+        return self._vendas
+
+    @property
+    def dinheiro(self):
+        return self._dinheiro
+
+    # set
+    def trocar_nome(self, novo_nome):
+
+        try:
+            self._nome = novo_nome
+            Caixa._acessadoRegistro.append({'Funcionario': self._nome, 'Vendas': self._vendas, 'Dinheiro': self._dinheiro})
+        except Exception as e:
+            print(f'Você não digitou uma palavra válida. Detalhes do erro: {e}')
+
+
+
+    def adicionar_vendas(self, nova_venda):
+        try:
+        # Tenta converter a entrada para número inteiro antes de somar
+            valor_venda = int(nova_venda)
+            self._vendas = self._vendas + valor_venda
+        except ValueError:
+            print("Operação cancelada: A venda precisa ser um número válido.")
+
+    def adicionar_dinheiro(self, ganhos_dinheiro):
+        self._dinheiro = self._dinheiro + ganhos_dinheiro
+
+# MÉTODO DE CLASSE: Para ler a lista de acessos de forma protegida
+    @classmethod
+    def ver_registros(cls):
+        return cls._acessadoRegistro
+    
+while True:
+
+    try:
+        servico = input('Deseja iniciar o caixa? (s/n): ')
+        if servico.lower() == 'n' or (
+            servico.lower() == 'nao') or (servico.lower() == 'não'):
+            break
+
+        elif servico.lower() == 's' or (
+            servico.lower() == 'sim') or (servico.lower() == 'sim'):
+            pass
+
+
+        else:
+            print('Digitou algo errado!')
+            break
+
+    except Exception as e:
+        print(f'Você não digitou uma palavra válida. Detalhes do erro: {e}')
+
+
+    try:
+        usuario = input('Diga seu usuario ( ou digite sair para finalizar): ')
+
+        if usuario.lower() == 'sair':
+            break
+
+        venda = int(input('Diga quantas vendas teve: '))
+        dinheiro = float(input('Diga quanto dinheiro ganhou em R$: '))
+
+    except Exception as e:
+        print(f'Erro ao digitar os valores. Tente novamente. Detalhes: {e}')
+        continue
+            
+    # Ao criar o caixa, o nome já é guardado automaticamente na lista protegida
+    sessao_atual = Caixa(usuario, venda, dinheiro)
+    
+    print(f"Bem-vindo, {sessao_atual.nome}!")
+
+for registro in Caixa.ver_registros():
+    print(
+        f"Funcionario: {registro['Funcionario']} | Vendas: {registro['Vendas']} | Dinheiro ganho: {registro['Dinheiro']}")

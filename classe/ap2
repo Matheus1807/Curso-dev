@@ -1,0 +1,99 @@
+# Criando um Personagem de Videogame, vai receber dano
+# e recuperar vida
+
+import random
+
+class Mundo_Escolhas:
+
+    def __init__(self, nome_personagem):
+        
+        self._nome_peronagem = nome_personagem
+        self._vida = 100
+
+    @property
+    def nome(self):
+        return self._nome_peronagem
+
+        # Set para trocar de nome
+    def trocar_nome(self, novo_nome):
+        self._nome_peronagem = novo_nome
+
+    # Get
+    @property
+    def vida(self):
+        return self._vida
+
+    # Set para recuperar a vida
+    def recuperar_vida(self, nova_vida):
+        if nova_vida > 0:
+                    self._vida = self._vida + nova_vida
+        else:
+            print('A nova vida tem que ser positiva (acima de 0)')
+
+    
+    def sofrer_dano(self, quantidade):
+
+        self._vida = self._vida - quantidade
+
+        if self._vida < 0:
+            self._vida = 0
+    
+        return (f'{self._vida}')
+
+
+# Pergunta o nome do seu personagem
+
+meu_personagem = Mundo_Escolhas(
+     input('Digite o nome do seu personagem: '
+           ).lower().strip())
+
+# Pergunta se quer trocar de nome do seu personagem, se quiser ele mudara
+
+deseja_troca = input(
+     'Deseja trocar o nome do seu personagem?'
+     ).strip().lower()
+
+if deseja_troca == 'sim' or deseja_troca == 's':
+    meu_personagem.trocar_nome(
+        input('Digite seu nome').strip().lower()
+        )
+
+# Um mine game com escolhas, cada escolhas vai levar a consequências
+print('-------------------------------------')
+print('Você encontrou em um mine game!')
+print('-------------------------------------')
+
+# Aqui ele pega e pergunta sobre dois caminhos, se ele escolher o errado ele perde a vida, senão nao acresenta
+cont1= input(
+     'Você está andando em uma rua deserta, deseja ir pela direita ou pela esquerda?')
+
+if (cont1 == 'esquerda') or (
+      cont1 == 'esq'):
+    print('Você entrou em uma rua escura! \n' \
+     '10 homens te pegou pelas costas' \
+     'perdeu 10 de vida')
+    meu_personagem.sofrer_dano(10)
+
+if meu_personagem.vida <= 100:
+    print('Você entrou na rua certa, parabéns!' \
+    '\nSua vida foi recuperada')
+    meu_personagem.recuperar_vida(10)
+
+else:
+    print('Você entrou na rua certa, parabéns!' \
+    '\nSua vida não diminuiu!')
+
+# Aqui ele a maquina geral numero aleatorio, se não acertar ele perde vida
+cont2 = int(input(
+     'Escolha um número de um a três'))
+
+nuMaq = random.randint(1, 3)
+
+if cont2 == nuMaq:
+    print('Você acertou o número e encontrou uma poção mágica!')
+    meu_personagem.recuperar_vida(20)
+else:
+    print(f'Você errou! O número era {nuMaq}. Você ativou uma armadilha.')
+    meu_personagem.sofrer_dano(15)
+# print(meu_personagem._vida
+print(meu_personagem.vida)

@@ -47,6 +47,22 @@ Praticar lógica de programação, transformar regras de negócio em algoritmos 
 - Cópias de listas e matrizes com `copy` e `deepcopy`
 - Ordenação com `sort()` e funções `lambda`
 - Compreensões de listas
+- Tratamento de erros com `try` e `except`
+
+### Programação orientada a objetos
+
+- Criação de classes, atributos e métodos
+- Construtores com `__init__` e uso de `self`
+- Herança com `super()`
+- Encapsulamento com atributos protegidos
+- Propriedades, getters e setters com `@property`
+
+### Arquivos e dados
+
+- Leitura, escrita e anexação de arquivos de texto com `open()`
+- Uso de gerenciadores de contexto com `with`
+- Criação e leitura de arquivos CSV com o módulo `csv`
+- Processamento de registros de vendas e geração de dados consolidados
 
 ### Bibliotecas e desenvolvimento web
 
@@ -59,6 +75,8 @@ Praticar lógica de programação, transformar regras de negócio em algoritmos 
 
 ```text
 Curso-dev/
+├── arquivo/        # leitura, escrita e processamento de TXT e CSV
+├── classe/         # classes, herança, propriedades e encapsulamento
 ├── condicionais/   # decisões, notas, triângulos e jogos
 ├── estrutura/      # listas, tuplas, conjuntos e dicionários
 ├── função/         # exercícios com vetores, buscas, médias e funções
@@ -107,6 +125,15 @@ Curso-dev/
 - Controle de permissões com conjuntos
 - Cadastro de candidatos com listas e dicionários
 - Controle de estoque com listas paralelas
+
+### Classes, arquivos e sistemas de console
+
+- Simulação de contas com depósito, saque, transferência e herança
+- Personagem de jogo com atributos protegidos e métodos de alteração de estado
+- Cadastro e consulta de chamados de atendimento
+- Gestão de estoque com cadastro e baixa de produtos
+- Registro de acessos e alunos em arquivos de texto
+- Geração de CSV e consolidação de faturamento de vendas
 
 ### Avaliação prática de lógica
 
@@ -162,7 +189,7 @@ Depois, acesse `http://127.0.0.1:8000` no navegador.
 - Criar testes automatizados
 - Organizar as dependências do projeto
 - Expandir a API com novas rotas e operações CRUD
-- Estudar programação orientada a objetos e bancos de dados
+- Aprofundar programação orientada a objetos e bancos de dados
 
 ## Tecnologias
 

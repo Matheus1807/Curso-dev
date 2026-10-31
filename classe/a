@@ -1,0 +1,22 @@
+class Usuario:                               # Define o molde (a classe) que chamaremos de 'Usuario'.
+    
+    def __init__(self):                      # Método construtor: roda automaticamente na hora que criamos um novo usuário. 
+        self._idade = 0                      # Cria a variável '_idade' pertencente a este objeto (self) e a inicia com 0. O underline '_' é um aviso visual de que ela é privada.
+
+    @property                                # Decorador que avisa ao Python: "transforme o método abaixo em um Getter (leitor)".
+    def idade(self):                         # Define a função 'idade'. O 'self' é obrigatório para ele saber de qual usuário estamos falando.
+        return self._idade                   # Pega o valor guardado na variável privada '_idade' e o devolve para quem pediu.
+
+    @idade.setter                            # Decorador que avisa: "este é o Setter (modificador) da propriedade 'idade' que criamos acima".
+    def idade(self, nova_idade):             # Define a função para alterar o valor. Ela recebe o próprio objeto (self) e o número que o usuário quer colocar (nova_idade).
+        if nova_idade >= 0:                  # Regra de validação: verifica se o número digitado é maior ou igual a zero.
+            self._idade = nova_idade         # Se for válido, ele acessa a 'minha' (self) idade privada e substitui pelo novo valor.
+        else:                                # Caso contrário (se o número for negativo)...
+            print("Erro: Idade inválida.")   # ...ele não altera o valor e apenas exibe esta mensagem na tela.
+            
+# --- Usando o código na prática ---
+
+user = Usuario()                             # Cria um usuário real a partir do molde 'Usuario' e guarda na variável 'user'. O __init__ roda nesta linha.
+user.idade = 25                              # Como temos o @idade.setter, o Python entende que não é uma variável comum e aciona o Setter secretamente.
+print(user.idade)                            # Ao tentar ler 'user.idade', o Python aciona o Getter (@property) e imprime o número 25.
+user.idade = -5                              # O Setter é acionado de novo, mas como -5 é negativo, ele cai no 'else' e imprime o erro em vez de alterar.

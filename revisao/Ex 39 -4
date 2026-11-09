@@ -1,0 +1,50 @@
+# A secretaria de uma escola técnica disponibilizou o arquivo notas_turma.csv
+# com as colunas matricula, aluno, nota1 e nota2.
+# i. Construa um programa em Python que leia esses registros e calcule a média
+# aritmética de cada aluno.
+# ii. Se a média final for maior ou igual a 7.0, o aluno recebe a situação
+# "APROVADO"; caso contrário, recebe "REPROVADO".
+# iii. O programa deve gerar o arquivo boletim_final.csv contendo as notas originais, a
+# média final arredondada para uma casa decimal e a situação acadêmica
+# calculada
+
+import csv
+
+with (
+     open('alunos_notas.csv', "r", encoding='utf-8') as arquivo,
+     open('alunos_resultado.csv', "w",  encoding='utf-8') as arquivo_reposicao
+        ):
+
+        leitor = csv.DictReader(arquivo, delimiter=';')
+
+        escritor = None
+
+        for aluno in leitor:
+
+            nota1 = float(aluno['nota1'])
+            nota2 = float(aluno['nota2'])
+            media = (nota1 + nota2)/2
+            pnt_flt = 0
+
+            if media > 7:
+                 situacao = 'Aprovado'
+
+            else:
+                 pnt_flt = 7 - media
+                 situacao = 'Reprovado'
+
+            resultados = {
+                 'Matricula': aluno['matricula'],
+                 'Aluno': aluno['aluno'],
+                 'Primeira_nota': nota1,
+                 'Segunda_nota': nota2,
+                 'Situação': situacao,
+                 'Pontos_faltando:': pnt_flt
+            }
+
+            if escritor == None:
+                cabecalhos = list(resultados.keys())
+                escritor = csv.DictWriter(arquivo_reposicao, delimiter=';', fieldnames=cabecalhos)
+        # escrever a primeira linha (que são os nomes das colunas)
+                escritor.writeheader()
+            escritor.writerow(resultados)

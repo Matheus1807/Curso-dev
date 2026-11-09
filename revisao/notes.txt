@@ -1,0 +1,32 @@
+i. A classe deve inicializar com nome,
+ preco e quantidade (padrão zero).
+ii. O atributo preco deve ser protegido
+ (_preco) e controlado via @property e
+@preco.setter. O setter não 
+deve aceitar valores menores ou 
+iguais a zero.
+==
+
+iii. O atributo quantidade deve 
+ser protegido (_quantidade) e 
+controlado via @property e
+@quantidade.setter. O setter não
+ deve aceitar valores negativos.
+iv. O construtor __init__ deve 
+obrigatoriamente acionar as 
+propriedades (sem underline)
+para que os dados já nasçam 
+validados na criação do objeto.
+v. Implemente a propriedade 
+somente-leitura valor_total_estoque 
+(apenas @property,
+sem setter), que calcula e 
+retorna dinamicamente preco * 
+quantidade.
+vi. Crie os métodos 
+adicionar_estoque(qtd) e 
+remover_estoque(qtd).
+a. O método de remoção deve validar 
+se há saldo suficiente antes de 
+subtrair,
+retornando um booleano de confirmação.

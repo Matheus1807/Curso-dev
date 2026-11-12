@@ -1,0 +1,92 @@
+class Personagem:
+
+    def __init__(self, nome: str = '', vida: float = 0, dinheiro: float = 0):
+        
+        self.nome  = nome
+        self._vida = vida
+        self._vidaMaxima = 100
+        self._dinheiro = dinheiro
+
+    def cadastro(self):
+        self.nome  = str(input('Digite seu nome: '))
+        self._dinheiro = int(input('Digite seu dinheiro atual: '))
+
+    @property
+    def vidaM(self):
+        return self._vidaMaxima
+
+    @property
+    def vidaA(self):
+        return self._vida
+
+    @vidaA.setter
+    def vidaA(self, nova_vida):
+        if nova_vida < self._vidaMaxima and nova_vida > 0:
+            
+            self._vida = nova_vida
+
+        else:
+
+            print('Inflingiu alguma regra de negocio')
+
+    def prctVida(self):
+        return f'A porcentagem da vida atual é {self._vida}%'
+
+    def t_dano(self, dano):
+        if dano > 0.00:
+           
+            print(f'Seu personagem sofreu {dano} de dano')
+           
+            self._vida -= dano
+           
+            if self._vida <= 0.0:
+                
+                self._vida = 0
+
+                print('Morreu vacilão')
+
+        else:
+            print('Dano tem que ser maior que zero')
+
+
+    def cura(self, curar_vida):
+        if curar_vida > 0.0:
+            
+            self._vida += curar_vida
+
+            print(f'Você foi curado! Parabéns')
+
+            if self._vida > 100:
+                self._vida = 100
+
+
+    def receber(self):
+
+        p = str(input('Você ganhou algum dinheiro? '))
+
+        if p == 'sim' or p == 's':
+
+            p2 = float(input('Qual é o valor recebido? '))
+
+            self._dinheiro += p2
+
+            print(f'Seu dinheiro agora é {self._dinheiro}')
+
+    def perder(self):
+
+        p = str(input('Você perdeu algum dinheiro? '))
+
+        if p == 'sim' or p == 's':
+
+            p2 = float(input('Qual é o valor perdeu? '))
+
+            self._dinheiro -= p2
+
+            print(
+                f'Dinheiro adicionado foi - {p2} \n novo saldo é - {self._dinheiro}')
+
+
+Matheus = Personagem('Matheus', 30.0, 300.1)
+Matheus.cura(50)
+Matheus.t_dano(10)
+print(Matheus.vidaA)

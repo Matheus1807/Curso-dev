@@ -1,0 +1,129 @@
+
+# O titular da conta.
+
+# O saldo atual, que não pode ser alterado diretamente (apenas via depósitos/saques).
+
+# O limite de crédito (cheque especial), que só pode ser ajustado para valores maiores ou iguais a 0.
+
+# O saldo disponível total (saldo real + limite), que deve ser apenas para leitura e calculado na hora.
+
+# Uma flag/propriedade que informe se a conta está usando o cheque especial (retorna True se o saldo for negativo)
+
+# Métodos para depositar(valor) e sacar(valor). O saque deve permitir usar o limite disponível, mas não pode 
+
+# ultrapassar a soma de saldo + limite.
+
+# Conta Bancária
+class Conta:
+    clientes = []
+    extrato = []
+
+    def __init__(self, nome: str = '', cpf: str = '', saldo: float = 0.0, credito: float = 0):
+        self.nome = nome
+        self._cpf = cpf
+        self._saldo = saldo
+        self._credito = credito
+        self.credito = credito
+        
+        self.meu_extrato = []
+
+    @property
+    def cpf(self):
+        return self._cpf
+
+    def cadastro(self):
+        self.nome = str(input('Digite seu nome')).strip().lower()
+        self._cpf = str(input('Digite seu cpf')).strip()
+
+        novo_cliente = {
+            'Nome': self.nome,
+            'Cpf': self._cpf,
+            'Saldo': self._saldo,
+            'Credito': self._credito,
+        }
+        
+        # Adiciona à lista geral de clientes da classe
+        Conta.clientes.append(novo_cliente)
+        print(f"-> Cliente {self.nome} cadastrado com sucesso!")
+    
+    @property
+    def saldo(self):
+        return f'Seu saldo atual - {self._saldo} | Seu saldo no crédito - {self._credito}'
+
+    def deposito(self):
+        p = str(input('Deseja realizar um deposito?')).strip().lower()
+
+        if p == 'sim' or p == 's':
+
+            novo_deposito = float(
+                input('Deseja depositar qnt?'))
+
+            if novo_deposito > 0.00:
+                self._saldo += novo_deposito
+                mensagem = f"Depósito: +R$ {novo_deposito:.2f}"
+                self.meu_extrato.append(mensagem)      # Extrato desta conta
+                Conta.extrato.append(f"[{self.nome}] {mensagem}")
+            else:
+                print('O saldo tem que ser maior que 0.00!')
+
+        else:
+            print('Transferência cancelada!')
+
+    def saque(self):
+
+        print(f'Seu saldo atual é {self._saldo} e no credito é {self._credito}')
+        p = str(input('Deseja realizar um saque?')).strip().lower()
+
+        if p == 'sim' or p == 's':
+            valor_saque = float(
+                input('Deseja sacar qnt?'))
+
+            saldo_total = self._saldo + self._credito
+
+            if valor_saque > 0.00 and valor_saque < saldo_total:
+                    self._saldo -= valor_saque
+                    mensagem = f"Saque: +R$ {valor_saque:.2f}"
+                    self.meu_extrato.append(mensagem)      # Extrato desta conta
+                    Conta.extrato.append(f"[{self.nome}] [{self._cpf}] - {mensagem}")
+            else:
+                    print(
+                            'O saldo tem que ser maior que 0.00 e tem que ter no seu cartão de debito!')
+
+        else:
+            print('Transferência cancelada!')
+
+    def pix(self, destino: 'Conta'):
+        print(f"\n--- PIX ---")
+        print(f"Saldo atual: R$ {self._saldo:.2f}")
+
+        valor_pix = float(input('Quanto deseja transferir por Pix? R$ '))
+
+        # Permite transferir usando o saldo + limite (saldo total disponível)
+        saldo_total_disponivel = self._saldo + self._credito
+
+        if 0 < valor_pix <= saldo_total_disponivel:
+            # Subtrai da conta atual (remetente)
+            self._saldo -= valor_pix
+            
+            # Adiciona na conta de destino (destinatário)
+            destino._saldo += valor_pix
+
+            # Registra no extrato do remetente
+            msg_saida = f"Pix enviado para {destino.nome}: -R$ {valor_pix:.2f}"
+            self.meu_extrato.append(msg_saida)
+
+            # Registra no extrato do destinatário
+            msg_entrada = f"Pix recebido de {self.nome}: +R$ {valor_pix:.2f}"
+            destino.meu_extrato.append(msg_entrada)
+
+            print(f"Pix de R$ {valor_pix:.2f} realizado com sucesso para {destino.nome}!")
+        else:
+            print("Operação cancelada! Saldo insuficiente ou valor inválido.")
+        
+client = Conta('', 0, 0)
+client.cadastro()
+client.deposito()
+
+print(client.saldo)
+print(client.nome)
+print(client.cpf)
